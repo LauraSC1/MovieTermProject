@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Movie Database SPA</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <div class="top-movies">
+            <!-- Top 5 movies grid -->
+        </div>
+        <div class="search-container">
+            <input type="text" id="searchInput" placeholder="Search by movie title">
+            <select id="genreSelect">
+                <!-- Genre options populated dynamically -->
+            </select>
+            <button id="searchBtn">Search</button>
+        </div>
+        <div class="view-options">
+            <label>View:</label>
+            <input type="radio" name="view" id="gridView" checked>
+            <label for="gridView">Grid</label>
+            <input type="radio" name="view" id="listView">
+            <label for="listView">List</label>
+
+            <label>Sort by:</label>
+            <select id="sortSelect">
+                <option value="popularity.desc">Popularity Descending</option>
+                <option value="vote_average.desc">Rating Descending</option>
+                <option value="release_date.desc">Release Date Descending</option>
+            </select>
+        </div>
+    </header>
+    <main>
+        <div id="movieResults">
+            <!-- Movie results display dynamically here -->
+        </div>
+        <div id="movieDetails">
+            <!-- Detailed movie information shown on click -->
+        </div>
+        <div id="castDetails">
+            <!-- Detailed cast information shown on click -->
+        </div>
+    </main>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
