@@ -1,0 +1,17 @@
+/* Global styles */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #13271b;
+    color: #3ea078;
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    background-color: #065535;
+    padding: 20px;
+    text-align: center;
+}
+
+/* Add more specific styles for elements as needed */
+
