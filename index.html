@@ -7,14 +7,12 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <!-- Header section containing search bar, view options, and sort options -->
+    <!-- Header section containing search bar, view options, sort options, and pagination -->
     <header>
         <div class="search-container">
             <input type="text" id="searchInput" placeholder="Search by movie title">
             <button id="searchBtn">Search</button>
         </div>
-
-         <!-- Container for view mode options (grid or list) -->
         <div class="view-options">
             <label>View:</label>
             <input type="radio" name="viewMode" id="gridView" value="grid" checked>
@@ -22,8 +20,6 @@
             <input type="radio" name="viewMode" id="listView" value="list">
             <label for="listView">List</label>
         </div>
-
-        <!-- Container for sort options dropdown and update button -->
         <div class="sort-options">
             <label>Sort by:</label>
             <select id="sortSelect">
@@ -33,8 +29,6 @@
             </select>
             <button id="updateSearchBtn">Update the search</button>
         </div>
-
-         <!-- Container for pagination controls -->
         <div class="pagination">
             <button id="prevBtn" disabled>Previous</button>
             <span id="pageCount">Page 1</span>
@@ -44,6 +38,12 @@
 
     <!-- Main content area where movie results are dynamically displayed -->
     <main>
+        <!-- Container for top 5 most popular movies displayed as grid -->
+        <div id="topMovies" class="gridView">
+            <!-- Top 5 most popular movies will be dynamically displayed here -->
+        </div>
+
+        <!-- Container for search results -->
         <div id="movieResults">
             <!-- Movie results display dynamically here -->
         </div>
