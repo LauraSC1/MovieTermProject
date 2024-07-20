@@ -1,17 +1,355 @@
-/* Global styles */
-body {
-    font-family: Arial, sans-serif;
-    background-color: #13271b;
-    color: #3ea078;
+/* Toggle View Style*/
+
+/* GRID */
+.movie-grid {
+    display: inline-grid;
+    align-items: center;
+    justify-items: center; /* Center items horizontally */
+    text-align: center; /* Center text within each grid item */
+    margin-bottom: 20px;
+}
+
+.movie-grid img {
+    width: 200px; 
+    height: 200px; 
+    margin: 0.3%;
+    padding: 2%;
+    padding-left: 20px;
+}
+
+.movie-grid .title {
+    font-size: 12px;
+    font-weight: bold;
+    margin-top: 5px; /* Add some space between image and title */
+    max-width: 180px; /* Limit maximum width */
+    overflow: hidden; /* Hide overflow content */
+    text-overflow: ellipsis; /* Display ellipsis (...) for overflow text */
+    white-space: nowrap; /* Prevent wrapping */
+}
+
+/* Allow text to wrap on multiple lines */
+.movie-grid .title:hover {
+    white-space: normal;
+    max-width: 180px;
+    overflow: visible;
+}
+
+/* LIST */
+
+.movie-list {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+    background-color: 		#3ea078; /* Light green */
+    padding: 10px; /* Padding around each movie item */
+    border-radius: 5px; /* Rounded corners */
+}
+
+.movie-list .movie-details {
+    flex: 1; /* Take up remaining space */
+}
+
+.movie-list img {
+    width: 150px; 
+    height: auto;
+    margin-right: 20px; /* Spacing between details and image */
+    border-radius: 5px; /* Rounded corners for image */
+}
+
+.movie-list .title {
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.movie-list .overview {
+    font-size: 14px;
+    margin-bottom: 5px;
+}
+
+.movie-list .release-date {
+    font-size: 14px;
+    color: #234030; /* Dark teal */
+}
+
+/* LIST MOVIE DETAILS */
+
+.movie-list {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    margin-bottom: 20px;
+    padding: 10px;
+}
+
+.movie-list img {
+    width: 150px; 
+    height: auto;
+    margin-right: 10px;
+}
+
+.movie-details {
+    flex: 1;
+}
+
+/* LIST ACTOR DETAILS */
+
+.actors {
+    margin-top: 10px;
+}
+
+.actor-name {
+    cursor: pointer;
+    margin-right: 10px;
+}
+
+.actor-details {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    padding: 10px;
+    z-index: 1;
+    width: 300px;
+    margin-left: 10px; 
+}
+
+.actor-details .close {
+    float: right;
+    cursor: pointer;
+    font-size: 50px;
+    font-weight: bold;
+}
+
+.actor-details .close:hover {
+    color: #13271b; /* Dark green */
+}
+
+.actor-details h2 {
+    margin-top: 0;
+}
+
+.actor-details.show {
+    display: block;
+}
+
+/* Actor Name Highlight Hover */
+
+.actor-name {
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.actor-name:hover {
+    font-weight: bold; /* Text becomes bold on hover */
+    border: 3px solid #086740; /* Border appears around the actor name on hover */
+}
+
+.actor-name {
+    cursor: pointer;
+    position: relative;
+    display: inline-block;
+}
+
+.actor-name::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background-color: rgba(62, 160, 120, 0.2); /* Light green highlight color */
+    transition: width 0.3s ease;
+}
+
+.actor-name:hover::after {
+    width: 100%; /* Full width of actor's name on hover */
+}
+
+/* Movie & Actor Details Actors Pictures */
+
+/* Movie Details */
+
+.movie-details-container {
+    display: flex;
+    margin-bottom: 20px;
+}
+
+.movie-details-container img {
+    width: 200px; /* Adjust the size as needed */
+    height: auto;
+    margin-right: 20px;
+}
+
+.movie-details-container .movie-info {
+    flex: 1;
+}
+
+/* Actors */
+
+.actors-container {
+    margin-top: 20px;
+}
+
+.actor-list {
+    list-style-type: none;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.actor-list li {
+    width: 200px; 
+    margin-right: 20px;
+    margin-bottom: 20px;
+}
+
+.actor-list li img {
+    width: 100%; /* Make actor images fill their container */
+    height: auto;
+    border-radius: 5px;
+}
+
+/* Actor Details Page */
+
+.actor-profile {
+    display: flex;
+    align-items: flex-start;
+    margin-bottom: 20px;
+}
+
+.actor-profile img {
+    width: 200px; /* Adjust the size of the actor image */
+    height: auto;
+    margin-right: 20px;
+    border-radius: 5px; 
+}
+
+.actor-info {
+    flex: 1; /* Take up remaining space */
+}
+
+.actor-info h2 {
+    margin-top: 0;
+    margin-bottom: 10px;
+    font-size: 24px; /* Adjust the font size for the actor's name */
+}
+
+.actor-info p {
+    margin-bottom: 10px;
+    line-height: 1.6; /* Adjust the line height for better readability */
+}
+
+/* Responsive Adjustment */
+@media (max-width: 768px) {
+    .actor-profile {
+        flex-direction: column; /* Stack image on top of text on smaller screens */
+    }
+}
+
+.actor-profile img {
+    margin-bottom: 10px; /* Add some spacing between image and text */
+}
+
+/* index.html SEARCH BAR & OPTIONS TEXT STYLE */
+/* Basic reset and styles */
+* {
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    background-color: #f0f0f0;
 }
 
 header {
-    background-color: #065535;
-    padding: 20px;
-    text-align: center;
+    background-color: #13271b; /* Dark green */
+    color: #fff;
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
 }
 
-/* Add more specific styles for elements as needed */
+.search-container {
+    display: flex;
+    align-items: center;
+}
 
+#searchInput {
+    padding: 8px;
+    font-size: 14px;
+    border: 1px solid #234030; /* Dark teal */
+    border-radius: 4px;
+    margin-right: 5px;
+}
+
+#searchBtn {
+    padding: 8px 12px;
+    font-size: 14px;
+    cursor: pointer;
+    background-color: #3ea078; /* Light green */
+    color: white;
+    border: none;
+    border-radius: 4px;
+}
+
+.view-options, .sort-options {
+    display: flex;
+    align-items: center;
+}
+
+.view-options label, .sort-options label {
+    margin-right: 10px;
+    font-weight: bold; /* Bold text for labels */
+}
+
+.view-options input[type="radio"], .sort-options select {
+    margin-right: 10px;
+}
+
+/* Sort by dropdown */
+.sort-options select {
+    padding: 8px;
+    font-size: 14px;
+    border: 1px solid #086740; /* Dark green */
+    border-radius: 4px;
+    background-color: #086740; /* Dark green */
+    color: #fff;
+}
+
+/* Hover and focus styles for input elements */
+#searchInput:hover, #searchInput:focus, #searchBtn:hover, #searchBtn:focus, .sort-options select:hover, .sort-options select:focus {
+    outline: none;
+    border-color: #3ea078; /* Light green */
+}
+
+/* HOME BUTTON */
+.home-btn {
+    display: inline-block;
+    padding: 15px 30px;
+    background-color: #3ea078;
+    color: white;
+    text-decoration: none;
+    border-radius: 8px;
+    font-size: 18px;
+    font-weight: bold;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.home-btn:hover {
+    background-color: #234030;
+    transform: scale(1.05); /* Scale up slightly on hover */
+}
+
+/* Optional: Adjustments for smaller screens */
+@media (max-width: 768px) {
+    .home-btn {
+        font-size: 16px;
+        padding: 12px 24px;
+    }
+}
