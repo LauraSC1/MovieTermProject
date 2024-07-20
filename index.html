@@ -7,44 +7,49 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+    <!-- Header section containing search bar, view options, and sort options -->
     <header>
-        <div class="top-movies">
-            <!-- Top 5 movies grid -->
-        </div>
         <div class="search-container">
             <input type="text" id="searchInput" placeholder="Search by movie title">
-            <select id="genreSelect">
-                <!-- Genre options populated dynamically -->
-            </select>
             <button id="searchBtn">Search</button>
         </div>
+
+         <!-- Container for view mode options (grid or list) -->
         <div class="view-options">
             <label>View:</label>
-            <input type="radio" name="view" id="gridView" checked>
+            <input type="radio" name="viewMode" id="gridView" value="grid" checked>
             <label for="gridView">Grid</label>
-            <input type="radio" name="view" id="listView">
+            <input type="radio" name="viewMode" id="listView" value="list">
             <label for="listView">List</label>
+        </div>
 
+        <!-- Container for sort options dropdown and update button -->
+        <div class="sort-options">
             <label>Sort by:</label>
             <select id="sortSelect">
                 <option value="popularity.desc">Popularity Descending</option>
                 <option value="vote_average.desc">Rating Descending</option>
                 <option value="release_date.desc">Release Date Descending</option>
             </select>
+            <button id="updateSearchBtn">Update the search</button>
+        </div>
+
+         <!-- Container for pagination controls -->
+        <div class="pagination">
+            <button id="prevBtn" disabled>Previous</button>
+            <span id="pageCount">Page 1</span>
+            <button id="nextBtn" disabled>Next</button>
         </div>
     </header>
+
+    <!-- Main content area where movie results are dynamically displayed -->
     <main>
         <div id="movieResults">
             <!-- Movie results display dynamically here -->
         </div>
-        <div id="movieDetails">
-            <!-- Detailed movie information shown on click -->
-        </div>
-        <div id="castDetails">
-            <!-- Detailed cast information shown on click -->
-        </div>
     </main>
-
+    
+    <!-- Scripts for jQuery and custom JavaScript -->
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="script.js"></script>
 </body>
