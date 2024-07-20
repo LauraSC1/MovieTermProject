@@ -193,4 +193,43 @@ $(document).ready(function() {
         }
         return age;
     }
+
+    // Fetch top 5 popular movies on page load
+    fetchTop5PopularMovies();
+
+    function fetchTop5PopularMovies() {
+        $.ajax({
+            url: apiURL + 'movie/popular',
+            method: 'GET',
+            data: {
+                api_key: apiKey,
+                page: 1
+            },
+            success: function(data) {
+                displayTop5PopularMovies(data.results);
+            },
+            error: function(err) {
+                console.error('Error fetching top 5 popular movies:', err);
+            }
+        });
+    }
+
+    function displayTop5PopularMovies(movies) {
+        // Clear any existing content
+        $('#topMovies').empty();
+
+        // Add a big header for top 5 most popular movies
+        $('#topMovies').append('<h2>Top 5 Most Popular Movies</h2>');
+
+        // Display each movie as grid
+        movies.slice(0, 5).forEach(movie => {
+            let posterURL = movie.poster_path ? imageBaseURL + movie.poster_path : 'no-image.jpg';
+            $('#topMovies').append(`
+                <div class="movie-grid">
+                    <a href="movie-details.html?id=${movie.id}" class="movie-title">${movie.title}</a>
+                    <img src="${posterURL}" alt="${movie.title}" />
+                </div>
+            `);
+        });
+    }
 });
